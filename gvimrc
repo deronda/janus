@@ -72,9 +72,12 @@ set visualbell
 
 " Start without the toolbar
 set guioptions-=T
+set guioptions-=l
+set guioptions-=L " nerdtree scrollbar
+set guioptions-=r
 
 " Default gui color scheme
-color ir_black
+color molokai
 
 " ConqueTerm wrapper
 function StartTerm()

@@ -129,8 +129,7 @@ set modelines=10
 
 " Default color scheme
 " color desert
-
-" Directories for swp files
+  " Directories for swp files
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 
@@ -187,3 +186,63 @@ noremap <silent> <c-s-up> :call <SID>swap_up()<CR>
 noremap <silent> <c-s-down> :call <SID>swap_down()<CR>
 
 set guifont=Inconsata-dz:h12
+
+nmap <C-s> :w<CR>
+imap <C-s> <Esc>:w<CR>a
+
+noremap <M-j> gT
+noremap <M-k> gt
+
+color desert
+
+if has("mouse")
+  set mouse=a
+  set mousehide
+endif
+
+let g:snippetsEmu_key = "<S-Tab>"
+
+let mapleader = ","
+
+" Leader shortcuts for Rails commands
+map <Leader>m :Rmodel 
+map <Leader>c :Rcontroller 
+map <Leader>v :Rview 
+map <Leader>u :Runittest 
+map <Leader>f :Rfunctionaltest 
+map <Leader>tm :RTmodel 
+map <Leader>tc :RTcontroller 
+map <Leader>tv :RTview 
+map <Leader>tu :RTunittest 
+map <Leader>tf :RTfunctionaltest 
+map <Leader>sm :RSmodel 
+map <Leader>sc :RScontroller 
+map <Leader>sv :RSview 
+map <Leader>su :RSunittest 
+map <Leader>sf :RSfunctionaltest 
+
+" Hide search highlighting
+map <Leader>h :set invhls <CR>
+
+" Opens an edit command with the path of the currently edited file filled in
+" Normal mode: <Leader>e
+map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+" Opens a tab edit command with the path of the currently edited file filled in
+" Normal mode: <Leader>t
+map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+
+" Inserts the path of the currently edited file into a command
+" Command mode: Ctrl+P
+cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
+
+" Maps autocomplete to tab
+imap <Tab> <C-N>
+
+imap <C-L> <Space>=><Space>
+
+" Edit routes
+command! Rroutes :e config/routes.rb
+command! Rschema :e db/schema.rb
+
+

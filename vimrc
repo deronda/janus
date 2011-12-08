@@ -182,8 +182,8 @@ function! s:swap_down()
   exec n + 1
 endfunction
 
-noremap <silent> <c-s-up> :call <SID>swap_up()<CR>
-noremap <silent> <c-s-down> :call <SID>swap_down()<CR>
+noremap <silent> <c-s-k> :call <SID>swap_up()<CR>
+noremap <silent> <c-s-j> :call <SID>swap_down()<CR>
 
 set guifont=Inconsata-dz:h12
 
@@ -245,4 +245,20 @@ imap <C-L> <Space>=><Space>
 command! Rroutes :e config/routes.rb
 command! Rschema :e db/schema.rb
 
+nmap <F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+nmap <F2> :.w !pbcopy<CR><CR>
+vmap <F2> :w !pbcopy<CR><CR>
 
+" Use the damn hjkl keys
+noremap <up> <nop>
+noremap <down> <nop>
+noremap <left> <nop>
+noremap <right> <nop>
+
+" automatic esc, really uncommon to type jj,jk
+inoremap jj <ESC>
+
+set shell=zsh
+
+set viminfo+=!
